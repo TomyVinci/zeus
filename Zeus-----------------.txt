@@ -1,0 +1,14 @@
+
+
+
+
+		Remove multiple
+		set value
+		get value
+		destroy
+
+		-------------- payant
+		filters
+		ajax/js
+		html content
+		............and mode options

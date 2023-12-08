@@ -1,0 +1,259 @@
+/*
+ *  https://github.com/TomyVinci/zeus
+ *
+ *  Document   : zeus.css
+ *  Author     : Tomy Vinci 
+ *  Description: The design file of zeus
+ *  Version    : v1.0.0 / Free
+ *
+*/
+
+.zeus-container {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 13px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin: auto;
+	font-family: sans-serif;
+	line-height: normal;
+}
+
+.zeus-container .zeus-value {
+	position: relative;
+	display: block;
+	border: 1px solid rgba(0,0,0,.15);
+	text-align: left;
+	line-height: 1;
+	padding: 2px 20px 2px 5px;
+	cursor: pointer;
+	color: #495057;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+	min-height: 35px;
+}
+.zeus-container.multiple .zeus-value {
+	overflow: visible;
+	text-overflow: clip;
+	text-wrap: wrap;
+	cursor: text;
+	min-height: 37px;
+}
+.zeus-container.disabled .zeus-value {color: rgba(0,0,0,.4);}
+
+.zeus-container.shown .zeus-value {
+	border-bottom: none;
+	background-image: linear-gradient(rgba(0,0,0,.15) 0,#fff 50%);
+}
+.zeus-container .zeus-value:after, .zeus-container.shown .zeus-value:after {
+	content: "";
+	position: absolute;
+	top: 13px;
+	right: 6px;
+	width: 10px;
+	height: 10px;
+	background: url(./svg/bottom.svg) no-repeat center center;
+	background-size: 100%;
+	opacity: .4;
+}
+.zeus-container.shown .zeus-value:after {
+	background: url(./svg/top.svg) no-repeat center center;
+	background-size: 100%;
+}
+.zeus-container.disabled .zeus-value:after {opacity: .2;}
+.zeus-container.rtl .zeus-value {padding: 2px 5px 2px 20px;}
+.zeus-container.rtl .zeus-value:after, .zeus-container.rtl.shown .zeus-value:after {
+	left: 6px;
+	right: auto;
+}
+
+.zeus-container .zeus-value span {
+	position: relative;
+	display: block;
+	line-height: 1;
+	font-size: 15px;
+	padding: 3px 0 3px;
+	margin: 4px 0;
+}
+.zeus-container.multiple .zeus-value span {
+	display: inline-block;
+	border: 1px solid #999;
+	cursor: pointer;
+	margin-right: 2px;
+	padding: 3px 20px 3px 5px;
+	background-image: linear-gradient(rgba(0,0,0,.1) 0,#fff 50%, rgba(0,0,0,.1) 100%);
+}
+.zeus-container.multiple .zeus-value span:after {
+	content: "";
+	position: absolute;
+	top: 5px;
+	right: 4px;
+	width: 12px;
+	height: 12px;
+	opacity: 1;
+	background: url(./svg/cancel.svg) no-repeat center center;
+	background-size: 100%;
+}
+.zeus-container.multiple.rtl .zeus-value span {padding: 3px 5px 3px 20px;}
+.zeus-container.multiple.rtl .zeus-value span:after {
+	left: 4px;
+	right: auto;
+}
+
+.zeus-container .zeus-toshow {
+	position: absolute;
+	display: none;
+	top: 100%;
+	margin-top: -1px;
+	left: 0;
+	right: 0;
+	z-index: 1001;
+	border: 1px solid rgba(0,0,0,.15);
+	border-top: none;
+	background-color: rgba(255,255,255,.5)!important;
+	backdrop-filter: saturate(1) blur(20px);
+}
+.zeus-container.shown .zeus-toshow {
+	display: block;
+}
+
+.zeus-container .zeus-search {
+	position: relative;
+	z-index: 1010;
+	margin: 0;
+	padding: 3px 4px;
+	white-space: nowrap;
+}
+
+.zeus-container .zeus-search input {
+	margin: 1px 0;
+	padding: 4px 20px 4px 5px;
+	width: 100%;
+	height: auto;
+	outline: 0;
+	border: 1px solid #aaa;
+	font-size: 1em;
+	font-family: sans-serif;
+	line-height: normal;
+}
+.zeus-container .zeus-search:after {
+	content: "";
+	position: absolute;
+	top: 9px;
+	right: 8px;
+	width: 15px;
+	height: 15px;
+	opacity: .7;
+	background: url(./svg/seach.svg) no-repeat center center;
+	background-size: 100%;
+}
+.zeus-container.rtl .zeus-search input {padding: 4px 5px 4px 20px;}
+.zeus-container.rtl .zeus-search:after {
+	left: 8px;
+	right: auto;
+}
+
+.zeus-container .zeus-list {
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 220px;
+	-webkit-overflow-scrolling: touch;
+}
+.zeus-container .zeus-list::-webkit-scrollbar{
+    width:3px;
+    background:rgba(0,0,0,.1);
+}
+.zeus-container .zeus-list::-webkit-scrollbar-thumb{
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+.zeus-container .zeus-list::-webkit-scrollbar-thumb{
+    background:rgba(0,0,0,.6); 
+}
+
+.zeus-container .zeus-list .zeus-group .zeus-group-title {
+	position: relative;
+	text-align: left;
+	padding: 5px;
+	line-height: 20px;
+	font-weight: bold;
+	background: rgba(0,0,0,.1);
+}
+.zeus-container.rtl .zeus-list .zeus-group .zeus-group-title {text-align: right;}
+
+.zeus-container .zeus-list .zeus-elem {
+	position: relative;
+	text-align: left;
+	display: list-item;
+	cursor: pointer;
+	margin: 0;
+	padding: 5px 6px;
+	list-style: none;
+	line-height: 15px;
+	word-wrap: break-word;
+	-webkit-touch-callout: none;
+	cursor: pointer;
+	max-height: 37px;
+	overflow: hidden;
+}
+.zeus-container .zeus-list .zeus-group .zeus-elem {padding-left: 15px;}
+.zeus-container.rtl .zeus-list .zeus-group .zeus-elem {
+	padding-left: 6px;
+	padding-right: 15px;
+}
+
+.zeus-container .zeus-list .zeus-elem:not(:last-child) {border-bottom: 1px dashed rgba(0,0,0,.05);}
+.zeus-container .zeus-list .zeus-elem:hover {
+	color: #fff;
+	background-color: #EF8D28;
+}
+
+.zeus-container .zeus-list .zeus-elem.selected {
+	background-color: #ef8d28;
+	color: #FFF;
+}
+.zeus-container.multiple .zeus-list .zeus-elem.selected {
+	background-color: unset;
+	color: rgba(0,0,0,.6);
+}
+.zeus-container .zeus-list .zeus-elem.pre-sel {
+	background-color: #db5406;
+	color: #FFF;
+}
+.zeus-container .zeus-list .zeus-elem.selected:after, .zeus-container .zeus-list .zeus-elem.disabled:after {
+	content: "";
+	position: absolute;
+    top: 6px;
+    right: 7px;
+    width: 13px;
+    height: 13px;
+	opacity: .8;
+	background: url(./svg/checked-w.svg) no-repeat center center;
+	background-size: 100%;
+}
+.zeus-container.multiple .zeus-list .zeus-elem.selected:after {
+	background: url(./svg/checked.svg) no-repeat center center;
+	background-size: 100%;
+}
+.zeus-container.rtl .zeus-list .zeus-elem.selected:after, .zeus-container.rtl .zeus-list .zeus-elem.disabled:after {
+	left: 7px;
+	right: auto;
+}
+
+.zeus-container .zeus-list .zeus-elem.disabled {
+	opacity: .5;
+	cursor: unset;
+}
+.zeus-container .zeus-list .zeus-elem.disabled:after {
+	background: url(./svg/forbbiden.svg) no-repeat center center;
+	background-size: 100%;
+}
+
+.zeus-container.rtl, .zeus-container.rtl .zeus-value, .zeus-container.rtl .zeus-search input, .zeus-container.rtl .zeus-list .zeus-elem {
+	text-align: right;
+	direction: rtl;
+}
